@@ -6,4 +6,5 @@ mydb = mysql.connector.connect(
     password='password'
 )
 
-print(mydb)
+mycursor = mydb.cursor()
+mycursor.execute("CREATE DATABASE mydatabase")
