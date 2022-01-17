@@ -9,10 +9,14 @@ a = mysql.connector.connect(
 
 b = a.cursor()
 
-b.execute('SELECT name, address FROM customers')
-c = b.fetchall()
-for d in c:
-    print(d)
+b.execute('SELECT * FROM customers')
+c = b.fetchone()
+print(c)
+
+# b.execute('SELECT name, address FROM customers')
+# c = b.fetchall()
+# for d in c:
+#     print(d)
 
 # b.execute('SELECT * FROM customers')
 # c = b.fetchall()
