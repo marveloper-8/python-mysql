@@ -1,20 +1,26 @@
 import mysql.connector
 
-mydb = mysql.connector.connect(
+a = mysql.connector.connect(
     host='localhost',
     user='root',
     password='password',
     database='mydatabase'
 )
 
-mycursor = mydb.cursor()
+b = a.cursor()
 
-sql = 'INSERT INTO customers (name, address) VALUES (%s, %s)'
-val = ('Michelle', 'Blue Village')
-mycursor.execute(sql, val)
+b.execute('SELECT * FROM customers')
+c = b.fetchall()
 
-mydb.commit()
-print('1 record inserted, ID:', mycursor.lastrowid)
+for d in c:
+    print(d)
+
+# sql = 'INSERT INTO customers (name, address) VALUES (%s, %s)'
+# val = ('Michelle', 'Blue Village')
+# mycursor.execute(sql, val)
+
+# mydb.commit()
+# print('1 record inserted, ID:', mycursor.lastrowid)
 
 # sql = 'INSERT INTO customers (name, address) VALUES (%s, %s)'
 # val = [
