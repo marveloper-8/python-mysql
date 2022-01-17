@@ -9,11 +9,16 @@ a = mysql.connector.connect(
 
 b = a.cursor()
 
-b.execute('SELECT * FROM customers')
+b.execute('SELECT name, address FROM customers')
 c = b.fetchall()
-
 for d in c:
     print(d)
+
+# b.execute('SELECT * FROM customers')
+# c = b.fetchall()
+
+# for d in c:
+#     print(d)
 
 # sql = 'INSERT INTO customers (name, address) VALUES (%s, %s)'
 # val = ('Michelle', 'Blue Village')
