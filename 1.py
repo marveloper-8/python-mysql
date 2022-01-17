@@ -9,11 +9,18 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
+sql = 'INSERT INTO customers (name, address) VALUES (%s, %s)'
+val = ("John", "Highway 21")
+mycursor.execute(sql, val)
+
+mydb.commit()
+print(mycursor.rowcount, "record inserted.")
+
 # mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))")
 # mycursor.execute("SHOW TABLES")
 # for x in mycursor:
 #     print(x)
-mycursor.execute("ALTER TABLE customers ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY")
+# mycursor.execute("ALTER TABLE customers ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY")
 
 # mycursor.execute("CREATE DATABASE mydatabase")
 # mycursor.execute("SHOW DATABASES")
