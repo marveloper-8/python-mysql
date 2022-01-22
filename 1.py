@@ -9,10 +9,18 @@ a = mysql.connector.connect(
 
 b = a.cursor()
 
-c = 'UPDATE customers SET address="Canyon 123" WHERE address="Valley 345"'
-b.execute(c)
+c = 'UPDATE customers SET address=%s WHERE address=%s'
+d = ('Valley 345', 'Canyon 123')
+b.execute(c, d)
 a.commit()
 print(b.rowcount, "record(s) affected")
+
+# b = a.cursor()
+
+# c = 'UPDATE customers SET address="Canyon 123" WHERE address="Valley 345"'
+# b.execute(c)
+# a.commit()
+# print(b.rowcount, "record(s) affected")
 
 # mycursor = a.cursor()
 # c = 'DROP TABLE IF EXISTS customers'
