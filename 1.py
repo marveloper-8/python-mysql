@@ -9,13 +9,24 @@ a = mysql.connector.connect(
 
 b = a.cursor()
 
-c = 'SELECT * FROM customers WHERE address=%s'
-d = ('Yellow Garden 2', )
+c = 'SELECT * FROM customers ORDER BY name'
 
-b.execute(c, d)
-e = b.fetchall()
-for f in e:
-    print(f)
+b.execute(c)
+
+d = b.fetchall()
+
+for e in d:
+    print(e)
+
+# b = a.cursor()
+
+# c = 'SELECT * FROM customers WHERE address=%s'
+# d = ('Yellow Garden 2', )
+
+# b.execute(c, d)
+# e = b.fetchall()
+# for f in e:
+#     print(f)
 
 # c = 'SELECT * FROM customers WHERE address LIKE "%way%"'
 # b.execute(c)
