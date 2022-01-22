@@ -8,9 +8,16 @@ a = mysql.connector.connect(
 )
 
 b = a.cursor()
-c = 'DROP TABLE IF EXISTS customers'
 
+c = 'UPDATE customers SET address="Canyon 123" WHERE address="Valley 345"'
 b.execute(c)
+a.commit()
+print(b.rowcount, "record(s) affected")
+
+# mycursor = a.cursor()
+# c = 'DROP TABLE IF EXISTS customers'
+
+# b.execute(c)
 
 # b = a.cursor()
 
@@ -108,7 +115,7 @@ b.execute(c)
 # ]
 # mycursor.executemany(sql, val)
 
-# mydb.commit()
+# a.commit()
 # print(mycursor.rowcount, "record inserted.")
 
 # mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))")
