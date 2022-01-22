@@ -9,11 +9,17 @@ a = mysql.connector.connect(
 
 b = a.cursor()
 
-b.execute('SELECT * FROM customers LIMIT 5')
+b.execute('SELECT * FROM customers LIMIT 5 OFFSET 2')
 c = b.fetchall()
 
 for d in c:
     print(d)
+
+# b.execute('SELECT * FROM customers LIMIT 5')
+# c = b.fetchall()
+
+# for d in c:
+#     print(d)
 
 # c = 'UPDATE customers SET address=%s WHERE address=%s'
 # d = ('Valley 345', 'Canyon 123')
