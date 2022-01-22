@@ -9,14 +9,23 @@ a = mysql.connector.connect(
 
 b = a.cursor()
 
-c = 'SELECT * FROM customers ORDER BY name DESC'
+c = 'DELETE FROM customers WHERE address = "Mountain 21"'
 
 b.execute(c)
+a.commit()
 
-d = b.fetchall()
+print(b.rowcount, "record(s) deleted")
 
-for e in d:
-    print(e)
+# b = a.cursor()
+
+# c = 'SELECT * FROM customers ORDER BY name DESC'
+
+# b.execute(c)
+
+# d = b.fetchall()
+
+# for e in d:
+#     print(e)
 
 # b = a.cursor()
 
