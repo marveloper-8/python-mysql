@@ -8,9 +8,14 @@ a = mysql.connector.connect(
 )
 
 b = a.cursor()
+c = 'DROP TABLE IF EXISTS customers'
 
-c = 'DROP TABLE customers'
 b.execute(c)
+
+# b = a.cursor()
+
+# c = 'DROP TABLE customers'
+# b.execute(c)
 
 # b = a.cursor()
 
