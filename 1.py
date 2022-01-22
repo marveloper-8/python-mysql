@@ -9,7 +9,7 @@ a = mysql.connector.connect(
 
 b = a.cursor()
 
-c = 'SELECT * FROM customers ORDER BY name'
+c = 'SELECT * FROM customers ORDER BY name DESC'
 
 b.execute(c)
 
