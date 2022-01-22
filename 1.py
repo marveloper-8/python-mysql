@@ -9,12 +9,17 @@ a = mysql.connector.connect(
 
 b = a.cursor()
 
-c = 'DELETE FROM customers WHERE address = %s'
-d = ('Yellow Garden 2',)
+c = 'DROP TABLE customers'
+b.execute(c)
 
-b.execute(c, d)
-a.commit()
-print(b.rowcount, 'record(s) deleted')
+# b = a.cursor()
+
+# c = 'DELETE FROM customers WHERE address = %s'
+# d = ('Yellow Garden 2',)
+
+# b.execute(c, d)
+# a.commit()
+# print(b.rowcount, 'record(s) deleted')
 
 # b = a.cursor()
 
