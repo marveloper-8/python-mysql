@@ -9,11 +9,17 @@ a = mysql.connector.connect(
 
 b = a.cursor()
 
-c = 'UPDATE customers SET address=%s WHERE address=%s'
-d = ('Valley 345', 'Canyon 123')
-b.execute(c, d)
-a.commit()
-print(b.rowcount, "record(s) affected")
+b.execute('SELECT * FROM customers LIMIT 5')
+c = b.fetchall()
+
+for d in c:
+    print(d)
+
+# c = 'UPDATE customers SET address=%s WHERE address=%s'
+# d = ('Valley 345', 'Canyon 123')
+# b.execute(c, d)
+# a.commit()
+# print(b.rowcount, "record(s) affected")
 
 # b = a.cursor()
 
