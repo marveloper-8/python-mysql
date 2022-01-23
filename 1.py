@@ -12,7 +12,7 @@ c = 'SELECT \
     users.name AS user, \
     products.name AS favorite \
     FROM users \
-    INNER JOIN products on users.fav = products.id'
+    LEFT JOIN products on users.fav = products.id'
 
 b.execute(c)
 d = b.fetchall()
