@@ -8,12 +8,57 @@ a = mysql.connector.connect(
 )
 
 b = a.cursor()
+c = 'SELECT \
+    users.name AS user, \
+    products.name AS favorite \
+    FROM users \
+    INNER JOIN products on users.fav = products.id'
 
-b.execute('SELECT * FROM customers LIMIT 5 OFFSET 2')
-c = b.fetchall()
+b.execute(c)
+d = b.fetchall()
+for e in d:
+    print(e)
 
-for d in c:
-    print(d)
+# b.execute('DROP TABLE products')
+# c = 'INSERT INTO products (id, name) VALUES (%s, %s)'
+# print(b.rowcount, "record(s) inserted")
+# d = [
+#     (154, 'Chocolate Heaven'),
+#     (155, 'Tasty Lemons') ,
+#     (156, 'Vanilla Dreams')
+# ]
+# b.executemany(c, d)
+# a.commit()
+# print(b.rowcount, "record(s) inserted.")
+# b.execute('ALTER TABLE products AUTO_INCREMENT=154')
+# b.execute('CREATE TABLE products (id int(255), name VARCHAR(255))')
+# b.execute('DROP TABLE users')
+# c = 'DELETE FROM users WHERE id >= 6'
+# d = (6)
+# b.execute(c)
+# a.commit()
+# print(b.rowcount, "record(s) deleted")
+# c = 'INSERT INTO users (name, fav) VALUES (%s, %s)'
+# d = [
+#     ('John',  154),
+#     ('Peter',  154),
+#     ('Amy',  155),
+#     ('Hannah', 0),
+#     ('Michael', 0)
+# ]
+# b.executemany(c, d)
+# a.commit()
+# print(b.rowcount, "record(s) inserted.")
+# b.execute('ALTER TABLE users ADD fav int(255)')
+# b.execute('ALTER TABLE users DROP COLUMN address')
+# b.execute('ALTER TABLE users ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY')
+# b.execute('CREATE TABLE users (name VARCHAR(255), fav VARCHAR(255))')
+
+# b.execute('SELECT * FROM customers LIMIT 5 OFFSET 2')
+# c = b.fetchall()
+
+# for d in c:
+#     print(d)
 
 # b.execute('SELECT * FROM customers LIMIT 5')
 # c = b.fetchall()
